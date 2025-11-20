@@ -22,6 +22,21 @@ $(document).ready(function () {
     });
   }
 
+  // NEWSLETTER HOME
+const $newsletterForm = $("#newsletter-form");
+
+if ($newsletterForm.length) {
+  $newsletterForm.on("submit", function (e) {
+    e.preventDefault();
+
+    $("#newsletter-feedback")
+      .removeClass("d-none")
+      .text("Te has suscrito a la newsletter. (Demo)");
+
+    this.reset();
+  });
+}
+
   // ========== ANIMACIÓN SCROLL 3D EN COLECCION ==========
   const frameElement = document.getElementById("frame-sequence");
 

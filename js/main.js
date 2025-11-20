@@ -1,11 +1,66 @@
-// Inicializar AOS (aunque de momento no le hemos puesto data-aos a nada)
+// Inicializar AOS
 AOS.init({
   duration: 700,
   easing: "ease-out-quart",
   once: true
 });
 
-// Aquí iremos metiendo poco a poco interacciones con jQuery
 $(document).ready(function () {
-  console.log("STRICTO listo 🚀");
+  console.log("STRICTO listo y funcionando");
+
+  // ========== FORMULARIO DE CONTACTO (ABOUT) ==========
+  const $contactForm = $("#contact-form");
+
+  if ($contactForm.length) {
+    $contactForm.on("submit", function (e) {
+      e.preventDefault(); // evita que recargue la página
+
+      alert("Tu mensaje se ha enviado correctamente.");
+
+      // opcional: limpiar el formulario
+      this.reset();
+    });
+  }
+
+  // ========== ANIMACIÓN SCROLL 3D EN COLECCION ==========
+  const frameElement = document.getElementById("frame-sequence");
+
+  // Solo ejecutar en coleccion.html (donde existe #frame-sequence)
+  if (frameElement && typeof gsap !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const frameCount = 78; // de 00 a 77 -> 78 frames
+
+    // Función que devuelve la ruta correcta
+    const currentFrame = (index) =>
+      `media/img/rotacioncamiseta/video cami blanca${String(index).padStart(2, "0")}.png`;
+      // si son JPG: cambia .png por .jpg
+
+    // Pre-carga básica
+    const images = [];
+    for (let i = 0; i < frameCount; i++) {
+      const img = new Image();
+      img.src = currentFrame(i);
+      images.push(img);
+    }
+
+    const animationState = { frame: 0 };
+
+    gsap.to(animationState, {
+      frame: frameCount - 1,
+      snap: "frame",
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#collection-hero",
+        start: "top top",
+        end: "+=2000",
+        scrub: 1,
+        pin: true
+      },
+      onUpdate: () => {
+        const frameIndex = Math.round(animationState.frame);
+        frameElement.src = currentFrame(frameIndex);
+      }
+    });
+  }
 });

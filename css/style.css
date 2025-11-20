@@ -127,8 +127,134 @@ body {
   z-index: 2;
 }
 
+/* ========== SECCIÓN COLECCIÓN (tipo grid Becay) ========== */
 
-/* Video de Fondo*/
+.collection-section {
+  background-color: #f3f3f3;           /* fondo claro tipo tienda */
+  color: #111;
+}
+
+.collection-tag {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #999;
+}
+
+.collection-title {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  margin-bottom: 0.2rem;
+}
+
+.collection-subtitle {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.collection-link {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #111;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.collection-link:hover {
+  color: #000;
+  border-color: #000;
+}
+
+/* CARD DE PRODUCTO */
+
+.product-card {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 1.3rem 1.3rem 1rem;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-media {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #e9eaec;
+}
+
+.product-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Badge "Bestseller" arriba a la izquierda */
+.product-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background-color: #000;
+  color: #fff;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+/* Texto de producto */
+
+.product-info {
+  padding-top: 0.8rem;
+}
+
+.product-name {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.15rem;
+  color: #111;
+}
+
+.product-price {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Puntitos de color */
+
+.product-colors {
+  display: flex;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+/* Ejemplos de colores (ajusta a tu paleta) */
+.color-blue      { background-color: #3d4f6b; }
+.color-cream     { background-color: #f4e5bc; }
+.color-charcoal  { background-color: #33363b; }
+.color-grey      { background-color: #b8b8b8; }
+.color-black     { background-color: #111111; }
+.color-navy      { background-color: #1c2235; }
+.color-lightdenim{ background-color: #b6cde5; }
+.color-darkdenim { background-color: #6d87a5; }
+
+/* Ajuste de scroll para que no se pegue a la navbar en anclas */
+.collection-section {
+  scroll-margin-top: 80px;
+}
+
 
 /* Botón de acento */
 .btn-stricto-accent {
@@ -148,4 +274,179 @@ body {
 /* ========== SECCIONES PLACEHOLDER ========== */
 section {
   scroll-margin-top: 80px; /* para que al hacer anchor no quede pegado a la navbar */
+}
+
+
+
+
+/* ==============================COLECCIÓN============================== */
+
+/* ========== COLECCIÓN 3D SCROLL ========== */
+
+/* ========== HERO COLECCIÓN 3D (texto + camiseta) ========== */
+
+.collection-3d-section {
+  position: relative;
+  height: 100vh;              
+  background: #000;
+  color: #ffffff;
+  overflow: hidden;
+
+}
+
+.collection-hero-card {
+  background: rgba(0, 0, 0, 0.75);
+  padding: 1.8rem 2rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  max-width: 380px;
+  text-align: center;          
+}
+
+
+.collection-hero-card .hero-title {
+  font-size: clamp(2.1rem, 3vw, 2.6rem);
+}
+
+/* Contenedor de la camiseta */
+.frame-container {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#frame-sequence {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Que el texto no quede pegado arriba en móvil */
+@media (max-width: 767.98px) {
+  .collection-3d-section {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    height: auto; /* en móvil puede no ser tan alto */
+  }
+}
+
+
+/* ========== ABOUT US ========== */
+
+.about-hero-section {
+  padding: 5rem 0 4rem;
+  background-color: var(--stricto-bg);
+}
+
+.about-hero-card {
+  border-radius: 20px;
+  border: 1px solid rgba(245, 245, 245, 0.18);
+  padding: 1.8rem 2rem;
+  background: radial-gradient(circle at top left, #141821, #050608);
+}
+
+/* Bloque derecha: equipo */
+.about-team-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.about-team-card {
+  border-radius: 20px;
+  border: 1px solid rgba(245, 245, 245, 0.14);
+  padding: 1.8rem 2rem;
+  background: #050608;
+}
+
+.about-team-title {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 1rem;
+  color: var(--stricto-muted);
+}
+
+.about-person-name {
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+
+.about-person-role {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--stricto-muted);
+  margin-bottom: 0.35rem;
+}
+
+.about-person-text {
+  font-size: 0.9rem;
+  color: var(--stricto-muted);
+}
+
+/* ========== CONTACTO ========== */
+
+.contact-section {
+  background-color: var(--stricto-bg-soft);
+}
+
+.contact-card {
+  border-radius: 20px;
+  border: 1px solid rgba(245, 245, 245, 0.18);
+  padding: 1.8rem 2rem;
+  background-color: #050608;
+}
+
+/* Inputs en oscuro */
+.form-control,
+.form-select {
+  background-color: #050608;
+  border: 1px solid rgba(245, 245, 245, 0.24);
+  color: var(--stricto-text);
+}
+
+.form-control::placeholder {
+  color: var(--stricto-muted);
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: #050608;
+  color: var(--stricto-text);
+  border-color: var(--stricto-accent);
+  box-shadow: 0 0 0 0.1rem rgba(245, 255, 59, 0.25);
+}
+
+/* ========== FAQ / ACORDEÓN OSCURO ========== */
+
+.faq-section {
+  background-color: var(--stricto-bg);
+}
+
+.faq-accordion .accordion-item {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(245, 245, 245, 0.16);
+  background-color: #050608;
+  margin-bottom: 0.75rem;
+}
+
+.faq-accordion .accordion-button {
+  background-color: #050608;
+  color: var(--stricto-text);
+}
+
+.faq-accordion .accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+
+.faq-accordion .accordion-button:focus {
+  box-shadow: 0 0 0 0.1rem rgba(245, 245, 245, 0.2);
+}
+
+.faq-accordion .accordion-body {
+  color: var(--stricto-muted);
 }
